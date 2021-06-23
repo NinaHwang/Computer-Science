@@ -1,0 +1,170 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux4Way16.hdl
+
+/**
+ * 4-way 16-bit multiplexor:
+ * out = a if sel == 00
+ *       b if sel == 01
+ *       c if sel == 10
+ *       d if sel == 11
+ */
+
+CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+
+    PARTS:
+	Not (in=sel[0], out=nots0);
+	Not (in=sel[1], out=nots1);
+	And (a=nots0, b=nots1, out=sel1);
+	And (a=sel[0], b=nots1, out=sel2);
+	And (a=nots0, b=sel[1], out=sel3);
+	And (a=sel[0], b=sel[1], out=sel4);
+
+
+	And (a=a[0], b=sel1, out=tmp01);
+	And (a=b[0], b=sel2, out=tmp02);
+	And (a=c[0], b=sel3, out=tmp03);
+	And (a=d[0], b=sel4, out=tmp04);
+	Or (a=tmp01, b=tmp02, out=tmp05);
+	Or (a=tmp05, b=tmp03, out=tmp06);
+	Or (a=tmp06, b=tmp04, out=out[0]);
+
+
+	And (a=a[1], b=sel1, out=tmp11);
+	And (a=b[1], b=sel2, out=tmp12);
+	And (a=c[1], b=sel3, out=tmp13);
+	And (a=d[1], b=sel4, out=tmp14);
+	Or (a=tmp11, b=tmp12, out=tmp15);
+	Or (a=tmp15, b=tmp13, out=tmp16);
+	Or (a=tmp16, b=tmp14, out=out[1]);
+
+
+	And (a=a[2], b=sel1, out=tmp21);
+	And (a=b[2], b=sel2, out=tmp22);
+	And (a=c[2], b=sel3, out=tmp23);
+	And (a=d[2], b=sel4, out=tmp24);
+	Or (a=tmp21, b=tmp22, out=tmp25);
+	Or (a=tmp25, b=tmp23, out=tmp26);
+	Or (a=tmp26, b=tmp24, out=out[2]);
+
+
+	And (a=a[3], b=sel1, out=tmp31);
+	And (a=b[3], b=sel2, out=tmp32);
+	And (a=c[3], b=sel3, out=tmp33);
+	And (a=d[3], b=sel4, out=tmp34);
+	Or (a=tmp31, b=tmp32, out=tmp35);
+	Or (a=tmp35, b=tmp33, out=tmp36);
+	Or (a=tmp36, b=tmp34, out=out[3]);
+
+
+	And (a=a[4], b=sel1, out=tmp41);
+	And (a=b[4], b=sel2, out=tmp42);
+	And (a=c[4], b=sel3, out=tmp43);
+	And (a=d[4], b=sel4, out=tmp44);
+	Or (a=tmp41, b=tmp42, out=tmp45);
+	Or (a=tmp45, b=tmp43, out=tmp46);
+	Or (a=tmp46, b=tmp44, out=out[4]);
+
+
+	And (a=a[5], b=sel1, out=tmp51);
+	And (a=b[5], b=sel2, out=tmp52);
+	And (a=c[5], b=sel3, out=tmp53);
+	And (a=d[5], b=sel4, out=tmp54);
+	Or (a=tmp51, b=tmp52, out=tmp55);
+	Or (a=tmp55, b=tmp53, out=tmp56);
+	Or (a=tmp56, b=tmp54, out=out[5]);
+
+
+	And (a=a[6], b=sel1, out=tmp61);
+	And (a=b[6], b=sel2, out=tmp62);
+	And (a=c[6], b=sel3, out=tmp63);
+	And (a=d[6], b=sel4, out=tmp64);
+	Or (a=tmp61, b=tmp62, out=tmp65);
+	Or (a=tmp65, b=tmp63, out=tmp66);
+	Or (a=tmp66, b=tmp64, out=out[6]);
+
+
+	And (a=a[7], b=sel1, out=tmp71);
+	And (a=b[7], b=sel2, out=tmp72);
+	And (a=c[7], b=sel3, out=tmp73);
+	And (a=d[7], b=sel4, out=tmp74);
+	Or (a=tmp71, b=tmp72, out=tmp75);
+	Or (a=tmp75, b=tmp73, out=tmp76);
+	Or (a=tmp76, b=tmp74, out=out[7]);
+
+
+	And (a=a[8], b=sel1, out=tmp81);
+	And (a=b[8], b=sel2, out=tmp82);
+	And (a=c[8], b=sel3, out=tmp83);
+	And (a=d[8], b=sel4, out=tmp84);
+	Or (a=tmp81, b=tmp82, out=tmp85);
+	Or (a=tmp85, b=tmp83, out=tmp86);
+	Or (a=tmp86, b=tmp84, out=out[8]);
+
+
+	And (a=a[9], b=sel1, out=tmp91);
+	And (a=b[9], b=sel2, out=tmp92);
+	And (a=c[9], b=sel3, out=tmp93);
+	And (a=d[9], b=sel4, out=tmp94);
+	Or (a=tmp91, b=tmp92, out=tmp95);
+	Or (a=tmp95, b=tmp93, out=tmp96);
+	Or (a=tmp96, b=tmp94, out=out[9]);
+
+
+	And (a=a[10], b=sel1, out=tmp101);
+	And (a=b[10], b=sel2, out=tmp102);
+	And (a=c[10], b=sel3, out=tmp103);
+	And (a=d[10], b=sel4, out=tmp104);
+	Or (a=tmp101, b=tmp102, out=tmp105);
+	Or (a=tmp105, b=tmp103, out=tmp106);
+	Or (a=tmp106, b=tmp104, out=out[10]);
+
+
+	And (a=a[11], b=sel1, out=tmp111);
+	And (a=b[11], b=sel2, out=tmp112);
+	And (a=c[11], b=sel3, out=tmp113);
+	And (a=d[11], b=sel4, out=tmp114);
+	Or (a=tmp111, b=tmp112, out=tmp115);
+	Or (a=tmp115, b=tmp113, out=tmp116);
+	Or (a=tmp116, b=tmp114, out=out[11]);
+
+
+	And (a=a[12], b=sel1, out=tmp121);
+	And (a=b[12], b=sel2, out=tmp122);
+	And (a=c[12], b=sel3, out=tmp123);
+	And (a=d[12], b=sel4, out=tmp124);
+	Or (a=tmp121, b=tmp122, out=tmp125);
+	Or (a=tmp125, b=tmp123, out=tmp126);
+	Or (a=tmp126, b=tmp124, out=out[12]);
+
+
+	And (a=a[13], b=sel1, out=tmp131);
+	And (a=b[13], b=sel2, out=tmp132);
+	And (a=c[13], b=sel3, out=tmp133);
+	And (a=d[13], b=sel4, out=tmp134);
+	Or (a=tmp131, b=tmp132, out=tmp135);
+	Or (a=tmp135, b=tmp133, out=tmp136);
+	Or (a=tmp136, b=tmp134, out=out[13]);
+
+
+	And (a=a[14], b=sel1, out=tmp141);
+	And (a=b[14], b=sel2, out=tmp142);
+	And (a=c[14], b=sel3, out=tmp143);
+	And (a=d[14], b=sel4, out=tmp144);
+	Or (a=tmp141, b=tmp142, out=tmp145);
+	Or (a=tmp145, b=tmp143, out=tmp146);
+	Or (a=tmp146, b=tmp144, out=out[14]);
+
+
+	And (a=a[15], b=sel1, out=tmp151);
+	And (a=b[15], b=sel2, out=tmp152);
+	And (a=c[15], b=sel3, out=tmp153);
+	And (a=d[15], b=sel4, out=tmp154);
+	Or (a=tmp151, b=tmp152, out=tmp155);
+	Or (a=tmp155, b=tmp153, out=tmp156);
+	Or (a=tmp156, b=tmp154, out=out[15]);
+	
+}
