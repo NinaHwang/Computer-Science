@@ -43,4 +43,36 @@ CHIP ALU {
 
     PARTS:
    // Put you code here:
+
+	Not16 (in=x, out=notx);
+	Or16 (a=x, b=notx, out=xone);
+	Not16 (in=xone, out=xzero);
+
+	Not16 (in=y, out=noty);
+	Or16 (a=y, b=noty, out=yone);
+	Not16 (in=yone, out=yzero);
+
+	Mux16 (a=x, b=xzero, sel=zx, out=zxresult);
+	Mux16 (a=y, b=yzero, sel=zy, out=zyresult);
+	Not16 (in=zxresult, out=notzxresult);
+	Not16 (in=zyresult, out=notzyresult);
+	Mux16 (a=zxresult, b= notzxresult, sel=nx, out=nxresult);
+	Mux16 (a=zyresult, b= notzyresult, sel=ny, out=nyresult);
+
+	Add16 (a=nxresult, b=nyresult, out=addxy);
+	And16 (a=nxresult, b=nyresult, out=andxy);
+	Mux16 (a=andxy, b=addxy, sel=f, out=fresult);
+
+	Not16 (in=fresult, out=notfresult);
+	Mux16 (a=fresult, b=notfresult, sel=no, out[0..7]=low8, out[8..14]=high7, out[15]=max);
+	Mux16(a[0..7]=low8, a[8..14]=high7, a[15]=max, b=true, sel=false, out=out);
+
+	Or8Way (in=low8, out=low8result);
+	Or8Way (in[0..6]=high7, in[7]=max, out=high8result);
+	Or (a=low8result, b=high8result, out=zrfinal);
+	Not (in=zrfinal, out=zr);
+
+	Or (a=max, b=false, out=ng);
+
+		
 }
