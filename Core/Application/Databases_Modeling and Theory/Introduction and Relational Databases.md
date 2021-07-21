@@ -2,7 +2,7 @@
 
 Class: Databases: Modeling and Theory
 Created: July 21, 2021 6:13 PM
-Materials: https://open.spotify.com/track/4tTihOTrCBZrbnf4pQuTq7?si=EUzPiatXRvaLWq9pPVcbwQ
+Materials: https://learning.edx.org/course/course-v1:StanfordOnline+SOE.YDB-MDL_THEORY0001+2T2020/home
 Reviewed: No
 Type: Lecture
 
