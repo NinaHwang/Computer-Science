@@ -1,9 +1,8 @@
 # Introduction and Relational Databases
 
-Class: Databases: Modeling and Theory
-Created: July 21, 2021 6:13 PM
-Materials: https://learning.edx.org/course/course-v1:StanfordOnline+SOE.YDB-MDL_THEORY0001+2T2020/home
-Reviewed: No
+Class: Databases: Modeling and Theory<br>
+Created: July 21, 2021 6:13 PM<br>
+Materials: https://learning.edx.org/course/course-v1:StanfordOnline+SOE.YDB-MDL_THEORY0001+2T2020/home<br>
 Type: Lecture
 
 # Introduction
