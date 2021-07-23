@@ -1,8 +1,8 @@
 # 1. Introduction; "big-oh" notation and asymptotic analysis
 
-Class: Divide and Conquer Sorting and Searching and Randomized Algorithms
-Created: July 22, 2021 4:41 PM
-Materials: https://www.coursera.org/learn/algorithms-divide-conquer/home/week/1, https://ko.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/asymptotic-notation
+Class: Divide and Conquer Sorting and Searching and Randomized Algorithms<br>
+Created: July 22, 2021 4:41 PM<br>
+Materials: https://www.coursera.org/learn/algorithms-divide-conquer/home/week/1, https://ko.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/asymptotic-notation<br>
 Type: Lecture
 
 # Introduction
